@@ -1,4 +1,4 @@
-import { articles } from "../../../routes/api/articles.js";
+//import { articles } from "../../../routes/api/articles.js";
 import Styles from "../components/tablestyle.js";
 import Table from "../components/evidencetable.js";
 import tablecolumns from "../components/tablecolumns.js";
@@ -11,7 +11,7 @@ const ArticleSummary = () => {
             <Dropdown/>
             <Styles>
               <Table
-              data={articles.get()}
+             // data={articles.get()}
               columns={tablecolumns}
               />
           </Styles>

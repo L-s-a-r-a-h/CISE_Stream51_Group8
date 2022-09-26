@@ -1,9 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from "react";
 import {
   Route,
-  Routes,
   NavLink,
   //BrowserRouter as Router,
   HashRouter as Router,
@@ -23,11 +22,11 @@ const App = () =>  {
              
           </ul>
         <div className="content">
-          <Routes>
+
             <Route exact path="/" element={<ArticleSummary/>}/>
             <Route  path="/ArticleSummary" element={<ArticleSummary/>}/>
             
-          </Routes>
+
 
         </div>
       </div>
