@@ -17,7 +17,9 @@ app.use(cors({ origin: true, credentials: true }));
 // Init Middleware
 app.use(express.json({ extended: false }));
 
+
 app.get('/', (req, res) => res.send('connected to port'));
+//app.get('/', (req, res) => res.send('/api/articles', articles));
 
 // use Routes
 app.use('/api/articles', articles);

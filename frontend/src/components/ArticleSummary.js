@@ -3,7 +3,7 @@ import Styles from "./tablestyle.js";
 import Table from "./evidencetable.js";
 import tablecolumns from "./tablecolumns.js";
 import Dropdown from "./Dropdown.js";
-
+//import '../index.js';
 
 const ArticleSummary = () => {
     return (
@@ -12,7 +12,7 @@ const ArticleSummary = () => {
             <Dropdown/>
             <Styles>
               <Table
-              data={articles.get()}
+              //data={articles.get()}
               columns={tablecolumns}
               />
           </Styles>
@@ -21,3 +21,4 @@ const ArticleSummary = () => {
 }
  
 export default ArticleSummary;
+
