@@ -5,8 +5,8 @@ import {
   Route,
   Routes,
   NavLink,
-  //BrowserRouter as Router,
-  HashRouter as Router,
+  BrowserRouter as Router,
+  //HashRouter as Router,
   Navigate,
 } from "react-router-dom";
 
