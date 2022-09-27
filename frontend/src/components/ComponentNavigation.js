@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
+import ArticleSummary from "./ArticleSummary";
 import Home from "./Home";
 import SubmitArticle from "./SubmitArticle";
 
@@ -13,6 +14,8 @@ function ComponentNavigation() {
             <div>
                 <Navbar bg="light" expand="lg">
                     <Container className="container" fluid>
+
+                        <h>SPEED</h> 
                         <Navbar.Brand href="/Home"><h4 className="store">Home</h4></Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll"/>
                         <Navbar.Collapse id="navbarScroll">
@@ -22,7 +25,7 @@ function ComponentNavigation() {
                                 navbarScroll
                             >
                                 <Nav.Link as={Link} to={"/ArticleSearch"}><h4 className="linkText">Find an article</h4></Nav.Link>
-                                <Nav.Link as={Link} to={"/book-list"}><h4 className="linkText">Article List</h4></Nav.Link>
+                                <Nav.Link as={Link} to={"/Articles"}><h4 className="linkText">Article List</h4></Nav.Link>
                                 <Nav.Link as={Link} to={"/SubmitArticle"}><h4 className="linkText">Request an Article</h4></Nav.Link>
 
                             </Nav>
@@ -36,6 +39,9 @@ function ComponentNavigation() {
                     <Route exact path='/' element={<Home/>} />
 
                     <Route path="/SubmitArticle" element={<SubmitArticle/>}>
+                    </Route>
+
+                    <Route path="/Articles" element={<ArticleSummary/>}>
                     </Route>
 
                    

@@ -5,8 +5,7 @@ const SubmitArticle = () =>  {
      return (
       <div>
         <h2>Submit Article</h2>
-            <p>This will be a form to allow submitters to submit an article for possible 
-inclusion in our SEED repo.</p>
+            <p>Request for an article to be added to the database. All submissions will be moderated.</p>
 <SubmissionForm/>
         </div>
     );
