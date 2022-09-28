@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import SEPractices from "../dummydata/SEPractices";
 
   const optionItems = SEPractices.map((SEPractice) =>
@@ -16,3 +16,5 @@ import SEPractices from "../dummydata/SEPractices";
     )
   }
   export default Dropdown;
+
+  */

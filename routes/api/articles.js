@@ -13,7 +13,7 @@ router.get('/test', (req, res) => res.send('article route testing!'));
 // @route GET api/books
 // @description Get all books
 // @access Public
-router.get('/', (req, res) => {
+router.get('/all-articles', (req, res) => {
   Article.find()
     .then(article => res.json(article))
     .catch(err => res.status(404).json({ nobooksfound: 'No Articles found' }));
@@ -57,4 +57,9 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ error: 'No such article' }));
 });
 
-module.exports = router;
+//listening on port
+const port = process.env.PORT || 8082;
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
+
+module.exports = router 
