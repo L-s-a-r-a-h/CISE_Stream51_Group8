@@ -6,6 +6,8 @@ import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
 import ArticleSummary from "./ArticleSummary";
 import Home from "./Home";
 import SubmitArticle from "./SubmitArticle";
+import ModerationList from "./ModerationList";
+import ArticleList from "./ArticleList";
 
 
 function ComponentNavigation() {
@@ -17,7 +19,9 @@ function ComponentNavigation() {
 
                         <h>SPEED</h> 
                         <Navbar.Brand href="/Home"><h4 className="store">Home</h4></Navbar.Brand>
-                        <Navbar.Toggle aria-controls="navbarScroll"/>
+                        <Nav.Link as={Link} to={"/Moderator"}><h4 className="linkText">moderator</h4></Nav.Link>
+
+                      
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
                                 className="me-auto my-2 my-lg-0"
@@ -41,9 +45,11 @@ function ComponentNavigation() {
                     <Route path="/SubmitArticle" element={<SubmitArticle/>}>
                     </Route>
 
-                    <Route path="/Articles" element={<ArticleSummary/>}>
+                    <Route path="/Articles" element={<ArticleList/>}>
                     </Route>
-
+              
+                    <Route path="/Moderator" element={<ModerationList/>}>
+                    </Route>
                    
                 </Routes>
             </div>

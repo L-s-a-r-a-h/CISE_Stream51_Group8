@@ -4,6 +4,7 @@ import Table from "../components/evidencetable.js";
 import tablecolumns from "../components/tablecolumns.js";
 import Dropdown from "../components/Dropdown.js";
 
+//show article details
 const ArticleSummary = () => {
     return (
       <div>
