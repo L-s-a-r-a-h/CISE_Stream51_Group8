@@ -1,30 +1,52 @@
 
 const express = require('express');
 const connectDB = require('./config/db');
-var cors = require('cors');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
 
+
+
 // routes
 const articles = require('./models/Article');
+const ArticleSubmission = require('./models/ArticleSubmissions');
 
 // cors
 app.use(cors({ origin: true, credentials: true }));
 
 
 // Connect Database
-connectDB();
+  connectDB();
+
+
+app.get('/test', (req, res) => res.send('article route testing!'));
+
+app.get('/all-articles', (req, res) => {
+  articles.find()
+      .then(Article => res.json(Article))
+      .catch(err => res.status(404).json({error: 'No articles found la'}));
+});
 
 // add article request to moderation list
 app.post('/SubmitArticle', (req, res) => {
   console.log(req.body);
   articles.create(req.body)
-      .then(book => res.json({msg: 'Submission successful'}))
+      .then(articles => res.json({msg: 'Submission successful'}))
       .catch(err => res.status(400).json({error: 'Unable to submit this article'}));
 });
 
+app.get('/article-request', (req, res) => {
+  articles.find()
+      .then(Article => res.json(article))
+      .catch(err => res.status(404).json({error: 'No article requests found'}));
+});
 
+app.get('/:id', (req, res) => {
+  Books.findById(req.params.id)
+      .then(book => res.json(book))
+      .catch(err => res.status(404).json({nobookfound: 'No Books found'}));
+});
 
 // Init Middleware
 app.use(express.json({ extended: false }));
@@ -34,11 +56,15 @@ app.get('/', (req, res) => res.send('connected to port'));
 //app.get('/', (req, res) => res.send('/api/articles', articles));
 
 
-const dotenv = require("dotenv");
+/*const dotenv = require("dotenv");
 dotenv.config();
 const PORT = process.env.PORT || 5000
+*/
 
-app.listen(PORT, () => console.log('Server running on port ${PORT}'));
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => {console.log('Server running on port ${PORT}')});
+
 
 
 

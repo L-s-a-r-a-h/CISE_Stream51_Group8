@@ -2,15 +2,18 @@
 const express = require('express');
 const router = express.Router();
 
+//connect to db
+const conn = require("../config/db");
+
 // Load Book model
 const Article = require('../../models/Article');
 
-// @route GET api/books/test     
+// @route GET api/articles/test     
 // @description tests books route
 // @access Public
 router.get('/test', (req, res) => res.send('article route testing!'));
 
-// @route GET api/books
+// @route GET api/articles
 // @description Get all books
 // @access Public
 router.get('/all-articles', (req, res) => {

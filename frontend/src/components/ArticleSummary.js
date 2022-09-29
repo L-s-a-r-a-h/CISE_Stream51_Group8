@@ -6,6 +6,7 @@ import ArticlesCard from "./ArticleCard"
 // import router from "../../../routes/api/articles.js";
 
 
+//show article details
 const ArticleSummary = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
