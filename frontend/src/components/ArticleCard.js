@@ -1,10 +1,10 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {Button} from "react-bootstrap";
+//import {Button} from "react-bootstrap";
 // import axios from "axios";
 
 const BookCard = (props) => {
-    const {id,title, isbn, author, image, description, published_date, publisher,} =
+    const {id,title, isbn, author,  description, published_date, publisher,} =
         {
             id: props.object._id,
             title: props.object.title,
@@ -33,7 +33,7 @@ const BookCard = (props) => {
         <>
 
             <div className="card card-container"  >
-                <img className="card-img-top image-size" src={image} alt="Card image cap"/>
+              
                 <div className="card-body">
                     <h4 className="card-title">Title: {title}</h4>
                     <h5 className="card-text">ISBN: {isbn}</h5>

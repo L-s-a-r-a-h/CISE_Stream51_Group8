@@ -1,8 +1,4 @@
 //import { articles } from "../../../routes/api/articles.js";
-import Styles from "../components/tablestyle.js";
-import Table from "../components/evidencetable.js";
-import tablecolumns from "../components/tablecolumns.js";
-import Dropdown from "../components/Dropdown.js";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 // import BookCard from "./BookCard";
