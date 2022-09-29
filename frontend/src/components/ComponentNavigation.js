@@ -30,6 +30,7 @@ function ComponentNavigation() {
                             >
                                 <Nav.Link as={Link} to={"/ArticleSearch"}><h4 className="linkText">Find an article</h4></Nav.Link>
                                 <Nav.Link as={Link} to={"/Articles"}><h4 className="linkText">Article List</h4></Nav.Link>
+                                <Nav.Link as={Link} to={"/ArticleSummary "}><h4 className="linkText">Article Summary </h4></Nav.Link>
                                 <Nav.Link as={Link} to={"/SubmitArticle"}><h4 className="linkText">Request an Article</h4></Nav.Link>
 
                             </Nav>
@@ -46,6 +47,9 @@ function ComponentNavigation() {
                     </Route>
 
                     <Route path="/Articles" element={<ArticleList/>}>
+                    </Route>
+
+                    <Route path="/ArticleSummary" element={<ArticleSummary/>}>
                     </Route>
               
                     <Route path="/Moderator" element={<ModerationList/>}>

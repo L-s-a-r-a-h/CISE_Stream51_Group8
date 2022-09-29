@@ -2,16 +2,16 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 // import BookCard from "./BookCard";
-import ArticlesCard from "./ArticleCard"
+//import ArticlesCard from "./ArticleCard"
+import ArticleItem from "./ArticleItem";
 // import router from "../../../routes/api/articles.js";
 
 
-//show article details
 const ArticleSummary = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
       let subscribe = true;
-        axios.get('http://localhost:8082/all-articles')
+        axios.get('http://localhost:5000/all-articles')
           .then(({data}) => {
               if (subscribe) {
                 setArticles(() => data);
@@ -24,16 +24,18 @@ const ArticleSummary = () => {
           subscribe = false;
       }
   });
-
-  const ArticlesCardData = () => {
+//<div className="ShowArticlesList">
+  //const ArticlesCardData = () => {
+    const ArticleItemData = () => {
       return articles.map((res, i) => {
-          return <ArticlesCard object={res} key={i}/>;
+          return <ArticleItem object={res} key={i}/>;
       })
   };
 
   return (
       <>
-          <div className="ShowArticlesList">
+          
+          <div className="ShowBookList">
                   <div className="row">
                       <div className="col-md-12">
                           <br/>
@@ -42,7 +44,7 @@ const ArticleSummary = () => {
                   </div>
 
                   <div className="list">
-                      {ArticlesCardData()}
+                  {ArticleItemData()}
                   </div>
           </div>
       </>
