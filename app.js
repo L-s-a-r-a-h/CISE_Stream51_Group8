@@ -9,7 +9,6 @@ const app = express();
 
 
 // routes
-//const articles = require('./routes/api/articles');
 const articles = require('./models/Article');
 const ArticleSubmission = require('./models/ArticleSubmissions');
 
@@ -52,7 +51,9 @@ app.get('/:id', (req, res) => {
 // Init Middleware
 app.use(express.json({ extended: false }));
 
+
 app.get('/', (req, res) => res.send('connected to port'));
+//app.get('/', (req, res) => res.send('/api/articles', articles));
 
 
 /*const dotenv = require("dotenv");
