@@ -32,7 +32,8 @@ const ArticleList = () => {
                     <div className="row">
                         <div className="col-md-12">
                             <br/>
-                            <h2 className="display-4 text-center">articles list</h2>
+                            <br/>
+                            <h2 className="display-4 text-center">Articles list</h2>
                         </div>
                     </div>
 
