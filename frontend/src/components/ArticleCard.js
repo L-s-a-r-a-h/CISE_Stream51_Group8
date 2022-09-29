@@ -3,18 +3,18 @@ import {Link} from "react-router-dom";
 //import {Button} from "react-bootstrap";
 // import axios from "axios";
 
-const BookCard = (props) => {
-    const {id,title, isbn, author,  description, published_date, publisher,} =
+const ArticleCard = (props) => {
+    const {id,title, authors, source, pubyear, doi,claim,evidence} =
         {
-            id: props.object._id,
+            id: props.object.id,
             title: props.object.title,
-            //isbn: props.object.isbn,
             authors: props.object.authors,
-            published_year: props.object.published_year,
+            source: props.object.source,
             doi: props.object.doi,
-            source:props.object.source,
+            pubyear: props.object.pubyear,
             claim: props.object.claim,
-            publisher: props.object.publisher
+            evidence: props.object.evidence
+
         };
 
     // const deleteBook = () => {
@@ -35,17 +35,22 @@ const BookCard = (props) => {
             <div className="card card-container"  >
               
                 <div className="card-body">
+                <h4 className="card-id">ID: {id}</h4>
                     <h4 className="card-title">Title: {title}</h4>
-                    <h5 className="card-text">ISBN: {isbn}</h5>
-                    <h5 className="card-text">Author: {author}</h5>
-                    <p className="card-text">Description: {description}</p>
-                    <p className="card-text">Published date: {published_date}</p>
-                    <p className="card-text">Publisher: {publisher}</p>
-                    <Link className="edit-link" to={"/update/" + id}>Update</Link>
-                    {/* <Button onClick={deleteBook} size="sm" variant="danger">Delete</Button> */}
+                    
+                    <h5 className="card-text">DOI: {doi}</h5>
+                    <h5 className="card-text">Authors: {authors}</h5>
+
+                    <p className="card-text">Published year: {pubyear}</p>
+                    <p className="card-text">Source: {source}</p>
+
+                    <p className="card-text">Claim: {claim}</p>
+                    <p className="card-text">Evidence: {evidence}</p>
+                    {/*<Link className="edit-link" to={"/update/" + id}>Update</Link>
+                     <Button onClick={deleteBook} size="sm" variant="danger">Delete</Button> */}
                 </div>
             </div>
         </>
     );
 }
-export default BookCard;
+export default ArticleCard;

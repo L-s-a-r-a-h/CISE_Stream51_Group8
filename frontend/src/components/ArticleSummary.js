@@ -11,7 +11,7 @@ const ArticleSummary = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
       let subscribe = true;
-        axios.get('http://localhost:8082/all-articles')
+        axios.get('http://localhost:5000/summary' )
           .then(({data}) => {
               if (subscribe) {
                 setArticles(() => data);

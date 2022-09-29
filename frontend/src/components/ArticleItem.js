@@ -3,6 +3,12 @@ import {Link} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import axios from "axios";
 
+//Copy of as Article Card, used for testing edits of articlecard
+
+
+
+// so dont use
+/*
 const ArticleItem = (props) => {
     const {id,title, authors, source, pubyear, doi,claim,evidence} =
         {
@@ -17,15 +23,11 @@ const ArticleItem = (props) => {
 
         };
 
+       
     const OpenSummary = () => {
         axios.get('http://localhost:5000/get/' + id)
             .then((res) => {
-                if (res.status === 200) {
-                    alert("Book was deleted")
-                    window.location.reload();
-                } else {
-                    Promise.reject();
-                }
+               
             })
             .catch(err => alert(err));
     }
@@ -43,10 +45,11 @@ const ArticleItem = (props) => {
                     <p className="card-text">Claim: {claim}</p>
                     <p className="card-text">Evidence: {evidence}</p>
                     <Link className="edit-link" to={"/summary/" + id}>Open</Link>
-                    <Button onClick={OpenSummary} size="sm" variant="danger">Open Summary</Button>
+                   
                 </div>
             </div>
         </>
     );
 }
 export default ArticleItem;
+*/

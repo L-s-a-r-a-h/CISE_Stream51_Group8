@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import ArticleItem from "./ArticleItem";
+import ArticleCard from "./ArticleCard"
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
@@ -22,7 +22,7 @@ const ArticleList = () => {
 
     const ArticleItemData = () => {
         return articles.map((res, i) => {
-            return <ArticleItem object={res} key={i}/>;
+            return <ArticleCard object={res} key={i}/>;
         })
     };
 

@@ -38,14 +38,20 @@ app.post('/SubmitArticle', (req, res) => {
 
 app.get('/article-request', (req, res) => {
   articles.find()
-      .then(Article => res.json(article))
+      .then(Article => res.json(Article))
       .catch(err => res.status(404).json({error: 'No article requests found'}));
+});
+
+app.get('/articlesummary/:id', (req, res) => {
+  articles.findById()
+      .then(Article => res.json(Article))
+      .catch(err => res.status(404).json({error: 'No article found'}));
 });
 
 app.get('/:id', (req, res) => {
   Books.findById(req.params.id)
       .then(book => res.json(book))
-      .catch(err => res.status(404).json({nobookfound: 'No Books found'}));
+      .catch(err => res.status(404).json({nobookfound: 'No articles found'}));
 });
 
 // Init Middleware
