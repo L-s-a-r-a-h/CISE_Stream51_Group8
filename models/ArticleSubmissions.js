@@ -27,4 +27,5 @@ const ArticleSubmissionSchema = new mongoose.Schema({
 
 });
 
-module.exports = Article = mongoose.model('article', ArticleSubmissionSchema);
+module.exports = ArticleSubmission = mongoose.model('articleRequests', ArticleSubmissionSchema,'articleRequests' );
+
