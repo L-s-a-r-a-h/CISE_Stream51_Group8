@@ -22,7 +22,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "cd frontend && npm start",
+
+    "test": "cd frontend && npm test",
+
     "start": "node app.js",
     "app": "nodemon app.js",
     "build": "cd frontend && npm install && npm run build"

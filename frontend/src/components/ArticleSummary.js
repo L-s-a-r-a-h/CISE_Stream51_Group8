@@ -1,17 +1,17 @@
-/*import { articles } from "../../../routes/api/articles.js";
+//import { articles } from "../../../routes/api/articles.js";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 // import BookCard from "./BookCard";
-//import ArticlesCard from "./ArticleCard"
-import ArticleItem from "./ArticleItem";
+import ArticlesCard from "./ArticleCard"
 // import router from "../../../routes/api/articles.js";
 
 
+//show article details
 const ArticleSummary = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
       let subscribe = true;
-        axios.get('http://localhost:5000/all-articles')
+        axios.get('http://localhost:5000/summary' )
           .then(({data}) => {
               if (subscribe) {
                 setArticles(() => data);
@@ -24,18 +24,16 @@ const ArticleSummary = () => {
           subscribe = false;
       }
   });
-//<div className="ShowArticlesList">
-  //const ArticlesCardData = () => {
-    const ArticleItemData = () => {
+
+  const ArticlesCardData = () => {
       return articles.map((res, i) => {
-          return <ArticleItem object={res} key={i}/>;
+          return <ArticlesCard object={res} key={i}/>;
       })
   };
 
   return (
       <>
-          
-          <div className="ShowBookList">
+          <div className="ShowArticlesList">
                   <div className="row">
                       <div className="col-md-12">
                           <br/>
@@ -44,59 +42,12 @@ const ArticleSummary = () => {
                   </div>
 
                   <div className="list">
-                  {ArticleItemData()}
+                      {ArticlesCardData()}
                   </div>
           </div>
       </>
   )
 }
 
-export default ArticleSummary;*/
-
-import React, {useEffect, useState} from "react";
-import axios from "axios";
-import ArticleItem from "./ArticleItem";
-
-const ArticleSummary = () => {
-    const [articles, setArticles] = useState([]);
-    useEffect(() => {
-        let subscribe = true;
-        axios.get('http://localhost:5000/all-articles')
-            .then(({data}) => {
-                if (subscribe) {
-                    setArticles(() => data);
-                }
-            })
-            .catch(err => {
-                alert(err);
-            });
-        return () => {
-            subscribe = false;
-        }
-    });
-
-    const ArticleItemData = () => {
-        return articles.map((res, i) => {
-            return <ArticleItem object={res} key={i}/>;
-        })
-    };
-
-    return (
-        <>
-            <div className="ShowBookList">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <br/>
-                            <br/>
-                            <h2 className="display-4 text-center">Article Summary</h2>
-                        </div>
-                    </div>
-
-                    <div className="list">
-                        {ArticleItemData()}
-                    </div>
-            </div>
-        </>
-    )
-}
 export default ArticleSummary;
+
