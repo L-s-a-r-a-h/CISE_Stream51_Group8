@@ -25,7 +25,7 @@
 
     "test": "cd frontend && npm test",
 
-    "start": "node app.js",
+    "start": "node frontend/app.js",
     "app": "nodemon app.js",
     "build": "cd frontend && npm install && npm run build",
     "install-client": "cd frontend && npm install",
