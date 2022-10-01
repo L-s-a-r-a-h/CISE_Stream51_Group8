@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {BrowserRouter as Router, Route, Routes, Link} from "react-router-dom";
+//web app routes
 import ArticleSummary from "./ArticleSummary";
 import Home from "./Home";
 import SubmitArticle from "./SubmitArticle";

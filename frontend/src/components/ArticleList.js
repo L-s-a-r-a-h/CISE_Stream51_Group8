@@ -28,7 +28,7 @@ const ArticleList = () => {
 
     return (
         <>
-            <div className="ShowBookList">
+            <div className="ShowArticleList">
                     <div className="row">
                         <div className="col-md-12">
                             <br/>
