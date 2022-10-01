@@ -29,14 +29,6 @@ app.get('/all-articles', (req, res) => {
       .catch(err => res.status(404).json({error: 'No articles found la'}));
 });
 
-// add article request to moderation list
-app.post('/SubmitArticle', (req, res) => {
-  console.log(req.body);
-  articleSubmissions.create(req.body)
-      .then(ArticleRequest => res.json({msg: 'Submission successful'}))
-      .catch(err => res.status(400).json({error: 'Unable to submit this article'}));
-});
-
 // get all article requests
 app.get('/all-articleRequests', (req, res) => {
   articleSubmissions.find()
@@ -45,7 +37,13 @@ app.get('/all-articleRequests', (req, res) => {
 
 });
 
-
+//request an article
+app.post('/request-article', (req, res) => {
+  console.log(req.body);
+  articleSubmissions.create(req.body)
+      .then(ArticleSubmission => res.json({msg: 'article requested'}))
+      .catch(err => res.status(400).json({error: 'Unable to submit this request'}));
+});
 
 
 app.get('/articlesummary/:id', (req, res) => {
@@ -79,8 +77,8 @@ app.listen(PORT, () => {console.log('Server running on port ${PORT}')});
 const path = require("path");
 
 // Step 1:
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use(express.static(path.resolve(__dirname, "./frontend/build")));
 // Step 2:
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+  response.sendFile(path.resolve(__dirname, "./frontend/build", "index.html"));
 });
