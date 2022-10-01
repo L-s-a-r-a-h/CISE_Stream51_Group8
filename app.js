@@ -6,8 +6,6 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-
-
 // routes
 const articles = require('./models/Article');
 const articleSubmissions = require('./models/ArticleSubmissions');
@@ -56,10 +54,7 @@ app.get('/articlesummary/:id', (req, res) => {
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-
 app.get('/', (req, res) => res.send('connected to port'));
-//app.get('/', (req, res) => res.send('/api/articles', articles));
-
 
 /*const dotenv = require("dotenv");
 dotenv.config();
