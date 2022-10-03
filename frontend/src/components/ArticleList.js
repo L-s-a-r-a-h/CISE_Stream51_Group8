@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import ArticleCard from "./ArticleCard"
+//import ArticleCard from "./ArticleCard"
+import ArticleCard from "./ArticleItem";
+//import ArticleCard from "./ArticleItem";
+
+import {Link,Route,Routes} from "react-router-dom";
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
@@ -26,6 +30,10 @@ const ArticleList = () => {
         })
     };
 
+    const OpenSummary = () => {
+
+    }
+
     return (
         <>
             <div className="ShowArticleList">
@@ -39,7 +47,10 @@ const ArticleList = () => {
 
                     <div className="list">
                         {ArticleItemData()}
+
                     </div>
+
+ 
             </div>
         </>
     )

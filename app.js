@@ -50,6 +50,12 @@ app.get('/articlesummary/:id', (req, res) => {
       .catch(err => res.status(404).json({error: + 'No article found'}));
 });
 
+/*app.get('/:id', (req, res) => {
+  articles.findById(req.params.id)
+      .then(Article => res.json(Article))
+      .catch(err => res.status(404).json({nobookfound: 'No Books found'}));
+});
+*/
 
 // Init Middleware
 app.use(express.json({ extended: false }));

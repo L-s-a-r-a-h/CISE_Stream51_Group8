@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import ArticleList from './components/ArticleList'
+import ComponentNavigation from "./components/ComponentNavigation";
+import SubmissionForm from './components/SubmissionForm';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('test submission',()=>{
+render(<SubmissionForm/>);
+
+})

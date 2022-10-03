@@ -5,7 +5,7 @@ import SubmissionForm from "../components/SubmissionForm.js";
 
 const SubmitArticle = () =>  {
     const addArticle = (data) => {
-        axios.post('http://localhost:5000/SubmitArticle', data)
+        axios.post('http://localhost:5000/request-article', data)
             .then(res => {
                 if(res.status === 200){
                     window.alert("Article requested");

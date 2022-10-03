@@ -1,18 +1,19 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link,Route,Routes} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import axios from "axios";
-
+import ArticleSummary from "./ArticleSummary"
 //Copy of as Article Card, used for testing edits of articlecard
 
 
 
-// so dont use
-/*
 const ArticleItem = (props) => {
+
+
+
     const {id,title, authors, source, pubyear, doi,claim,evidence} =
         {
-            id: props.object.id,
+            id: props.object._id,
             title: props.object.title,
             authors: props.object.authors,
             source: props.object.source,
@@ -23,33 +24,50 @@ const ArticleItem = (props) => {
 
         };
 
-       
-    const OpenSummary = () => {
-        axios.get('http://localhost:5000/get/' + id)
+        const OpenSummaryData = () => {
+
+            
+                <>
+                    <h5 className="card-text">DOI: {doi}</h5>
+                    <h5 className="card-text">Authors: {authors}</h5>
+                    <p className="card-text">Published year: {pubyear}</p>
+                    <p className="card-text">Claim: {claim}</p>
+                    <p className="card-text">Evidence: {evidence}</p>
+                </>
+                
+   
+            };
+
+
+    /*const OpenSummary = () => {
+        axios.get('http://localhost:5000/articlesummary/' + id)
             .then((res) => {
                
             })
             .catch(err => alert(err));
     }
+    */
     return (
         <>
 
             <div className="card card-container"  >
                 <div className="card-body">
                 <h4 className="card-id">ID: {id}</h4>
-                    <h4 className="card-title">Title: {title}</h4>
-                    
-                    <h5 className="card-text">DOI: {doi}</h5>
-                    <h5 className="card-text">Authors: {authors}</h5>
-                    <p className="card-text">Published year: {pubyear}</p>
-                    <p className="card-text">Claim: {claim}</p>
-                    <p className="card-text">Evidence: {evidence}</p>
-                    <Link className="edit-link" to={"/summary/" + id}>Open</Link>
-                   
+                <Link className="summary-link" to={"/summary/" + id}>Title: {title}</Link>
+                <h5 className="card-text">Authors: {authors}</h5>
                 </div>
+      
             </div>
+        
+            <Routes>
+                    <Route path="/summary/:id" element={<ArticleSummary id = {id}/>}>
+                 
+                    </Route>
+
+                    </Routes>
+
+
         </>
     );
 }
 export default ArticleItem;
-*/

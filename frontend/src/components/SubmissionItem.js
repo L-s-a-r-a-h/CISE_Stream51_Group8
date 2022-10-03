@@ -1,9 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import {Button} from "react-bootstrap";
-import axios from "axios";
 
-
+// data entered into submission form
 const SubmissionItem = (props) => {
     const {id,title, authors, source, pubyear, doi,name,email} =
         {
