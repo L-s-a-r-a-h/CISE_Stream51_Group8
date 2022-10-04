@@ -27,7 +27,7 @@ const ArticleList = () => {
         const results = searchFilter.filter(resp =>
            resp.name.toLowerCase().includes(result)
         );
-        setData(results)
+        setArticles(results)
       },[result])
 
     const ArticleItemData = () => {
