@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ArticleSchema = new mongoose.Schema({
+const ArticleSubmissionSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -18,13 +18,14 @@ const ArticleSchema = new mongoose.Schema({
   source: {
     type: String
   },
-  claim: {
+  name: {
     type: String
   },
-  evidence: {
+  email: {
     type:String
   }
 
 });
 
-module.exports = Article = mongoose.model('Article', ArticleSchema);
+module.exports = ArticleSubmission = mongoose.model('articleRequests', ArticleSubmissionSchema,'articleRequests' );
+

@@ -2,18 +2,21 @@
 const express = require('express');
 const router = express.Router();
 
+//connect to db
+const conn = require("../config/db");
+
 // Load Book model
 const Article = require('../../models/Article');
 
-// @route GET api/books/test     
+// @route GET api/articles/test     
 // @description tests books route
 // @access Public
 router.get('/test', (req, res) => res.send('article route testing!'));
 
-// @route GET api/books
+// @route GET api/articles
 // @description Get all books
 // @access Public
-router.get('/', (req, res) => {
+router.get('/all-articles', (req, res) => {
   Article.find()
     .then(article => res.json(article))
     .catch(err => res.status(404).json({ nobooksfound: 'No Articles found' }));
@@ -57,4 +60,9 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ error: 'No such article' }));
 });
 
-module.exports = router;
+//listening on port
+const port = process.env.PORT || 8082;
+
+app.listen(port, () => console.log(`Server running on port ${port}`));
+
+module.exports = router 

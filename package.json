@@ -1,12 +1,17 @@
 {
   "dependencies": {
+    "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "config": "^3.3.8",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
+    "mongodb": "^4.10.0",
     "mongoose": "^6.6.0",
+    "react-router-dom": "^6.3.0",
+    "react-table": "^7.8.0",
+    "styled-components": "^5.3.6",
     "validation": "^0.0.1"
   },
   "devDependencies": {
@@ -17,9 +22,13 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+
+    "test": "cd frontend && npm test",
     "start": "node app.js",
-    "app": "nodemon app.js"
+    "app": "nodemon app.js",
+    "build": "cd frontend && npm install && npm run build",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
+
   },
   "repository": {
     "type": "git",
