@@ -14,7 +14,7 @@ const ArticleList = () => {
                     setArticles(() => data);
                 }
             })
-            .then((data) => setSearchFilter(data))
+            .then((articles) => setSearchFilter(articles))
             .catch(err => {
                 alert(err);
             });
@@ -24,17 +24,17 @@ const ArticleList = () => {
     });
 
     useEffect(() =>{
-        const results = searchFilter.filter(resp =>
-           resp.name.toLowerCase().includes(result)
+        const results = searchFilter.filter(res =>
+           res.title.toLowerCase().includes(result)
         );
         setArticles(results)
       },[result])
 
-    const ArticleItemData = () => {
-        return articles.map((res, i) => {
-            return <ArticleCard object={res} key={i}/>;
-        })
-    };
+    // const ArticleItemData = () => {
+    //     return articles.map((res, i) => {
+    //         return <ArticleCard object={res} key={i}/>;
+    //     })
+    // };
 
     const onChange = (evt) => {
         setResult(evt.target.value);
@@ -53,13 +53,18 @@ const ArticleList = () => {
 
                     <input
                             type="text"
-                            placeholder="Search for an article..."
+                            placeholder="Search for an article test..."
                             value={result}
                             onChange={onChange}
                     />
 
                     <div className="list">
-                        {ArticleItemData()}
+                        {articles.map((res,i) => {
+                            <ArticleCard object={res} key={i}/>
+                        }
+
+                        )
+                    }
                     </div>
             </div>
         </>
