@@ -8,6 +8,8 @@ import {Link,Route,Routes} from "react-router-dom";
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
+    const [searchFilter, setSearchFilter] = useState([]);
+    const [result, setResult] = useState("");
     useEffect(() => {
         let subscribe = true;
         axios.get('http://localhost:5000/all-articles')
@@ -16,6 +18,7 @@ const ArticleList = () => {
                     setArticles(() => data);
                 }
             })
+            .then((articles) => setSearchFilter(articles))
             .catch(err => {
                 alert(err);
             });
@@ -24,11 +27,22 @@ const ArticleList = () => {
         }
     });
 
-    const ArticleItemData = () => {
-        return articles.map((res, i) => {
-            return <ArticleCard object={res} key={i}/>;
-        })
-    };
+    useEffect(() =>{
+        const results = searchFilter.filter(res =>
+           res.title.toLowerCase().includes(result)
+        );
+        setArticles(results)
+      },[result])
+
+    // const ArticleItemData = () => {
+    //     return articles.map((res, i) => {
+    //         return <ArticleCard object={res} key={i}/>;
+    //     })
+    // };
+
+    const onChange = (evt) => {
+        setResult(evt.target.value);
+        }
 
     const OpenSummary = () => {
 
@@ -41,12 +55,28 @@ const ArticleList = () => {
                         <div className="col-md-12">
                             <br/>
                             <br/>
-                            <h2 className="display-4 text-center">Articles list</h2>
+                            <h2 className="display-4 text-center">Articles List</h2>
                         </div>
                     </div>
 
+                    <input
+                            type="text"
+                            placeholder="Search for an article test..."
+                            value={result}
+                            onChange={onChange}
+                    />
+
                     <div className="list">
+
                         {ArticleItemData()}
+
+
+                        {articles.map((res,i) => {
+                            <ArticleCard object={res} key={i}/>
+                        }
+
+                        )
+                    }
 
                     </div>
 
