@@ -6,11 +6,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-
-
 // routes
 const articles = require('./models/Article');
-const ArticleSubmission = require('./models/ArticleSubmissions');
+const articleSubmissions = require('./models/ArticleSubmissions');
 
 // cors
 app.use(cors({ origin: true, credentials: true }));
@@ -19,42 +17,44 @@ app.use(cors({ origin: true, credentials: true }));
 // Connect Database
   connectDB();
 
-
+//routes
 app.get('/test', (req, res) => res.send('article route testing!'));
 
+// get all articles in the db
 app.get('/all-articles', (req, res) => {
   articles.find()
-      .then(Article => res.json(Article))
+      .then(Articles => res.json(Articles))
       .catch(err => res.status(404).json({error: 'No articles found la'}));
 });
 
-// add article request to moderation list
-app.post('/SubmitArticle', (req, res) => {
+// get all article requests
+app.get('/all-articleRequests', (req, res) => {
+  articleSubmissions.find()
+  .then(ArticleSubmission => res.json(ArticleSubmission))
+  .catch(err => res.status(404).json({error: 'No articles found la'}));
+
+});
+
+//request an article
+app.post('/request-article', (req, res) => {
   console.log(req.body);
-  articles.create(req.body)
-      .then(articles => res.json({msg: 'Submission successful'}))
-      .catch(err => res.status(400).json({error: 'Unable to submit this article'}));
+  articleSubmissions.create(req.body)
+      .then(ArticleSubmission => res.json({msg: 'article requested'}))
+      .catch(err => res.status(400).json({error: 'Unable to submit this request'}));
 });
 
-app.get('/article-request', (req, res) => {
-  articles.find()
-      .then(Article => res.json(article))
-      .catch(err => res.status(404).json({error: 'No article requests found'}));
+
+app.get('/articlesummary/:id', (req, res) => {
+  articles.findById(req.params.id)
+      .then(Article => res.json(Article))
+      .catch(err => res.status(404).json({error: + 'No article found'}));
 });
 
-app.get('/:id', (req, res) => {
-  Books.findById(req.params.id)
-      .then(book => res.json(book))
-      .catch(err => res.status(404).json({nobookfound: 'No Books found'}));
-});
 
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-
 app.get('/', (req, res) => res.send('connected to port'));
-//app.get('/', (req, res) => res.send('/api/articles', articles));
-
 
 /*const dotenv = require("dotenv");
 dotenv.config();
@@ -63,7 +63,7 @@ const PORT = process.env.PORT || 5000
 
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => {console.log('Server running on port ${PORT}')});
+app.listen(PORT, () => console.log('Server running on port ${PORT}'));
 
 
 
@@ -72,8 +72,8 @@ app.listen(PORT, () => {console.log('Server running on port ${PORT}')});
 const path = require("path");
 
 // Step 1:
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use(express.static(path.resolve(__dirname, "./frontend/build")));
 // Step 2:
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+  response.sendFile(path.resolve(__dirname, "./frontend/build", "index.html"));
 });
