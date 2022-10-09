@@ -65,8 +65,42 @@ const ArticleSummary= () => {
     const {id} = useParams();
 
     let navigate = useNavigate();
+    const [data, setData] = useState('');
+    try {
+        
+        const response = axios.get('http://localhost:5000/articlesummary/'+ id)
+        .then((response) => {
+           
+           // alert(response.data);
+            setData(response.data);
+            })
+      
+    }catch(err)
+    {
+         alert(err);
+    };
+    return (
+        <>
 
-    const [ article, setArticle] = useState({
+            <div className="ShowArticleList">
+                    <div className="row">
+                        <div className="col-md-12">
+                        
+                            <h2 className="display-4 text-center">Article Summary</h2>
+                            <h5>details and summary of the article</h5>
+                            <h>article id is {id}</h>
+                         
+                        </div>
+                    </div>
+
+           
+
+ 
+            </div>
+        </>
+    )
+
+   /*     const [ article, setArticle] = useState({
         id: "",
         title: "",
         authors: "",
@@ -81,8 +115,7 @@ const ArticleSummary= () => {
 
     useEffect(() => {
         axios.get('http://localhost:5000/articlesummary/' + id)
-
-            .then(res => {
+          .then(res => {
                 const {id,title, authors, source, pubyear, doi,claim,evidence} = res.data;
                 setArticle({
                     id:id,
@@ -97,32 +130,14 @@ const ArticleSummary= () => {
             })
 
             .catch(err => alert(err));
-           
+                }, []);  */
+         
 
             
-    }, []);
 
-    return (
-        <>
-            <div className="ShowArticleList">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <br/>
-                            <br/>
-                            <h2 className="display-4 text-center">Article Summary</h2>
 
-                        </div>
-                    </div>
-
-                    <div className="list">
-                  
-                    
-                    </div>
 
  
-            </div>
-        </>
-    )
 
 
 

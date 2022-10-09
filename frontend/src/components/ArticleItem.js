@@ -24,29 +24,6 @@ const ArticleItem = (props) => {
 
         };
 
-        const OpenSummaryData = () => {
-
-            
-                <>
-                    <h5 className="card-text">DOI: {doi}</h5>
-                    <h5 className="card-text">Authors: {authors}</h5>
-                    <p className="card-text">Published year: {pubyear}</p>
-                    <p className="card-text">Claim: {claim}</p>
-                    <p className="card-text">Evidence: {evidence}</p>
-                </>
-                
-   
-            };
-
-
-    /*const OpenSummary = () => {
-        axios.get('http://localhost:5000/articlesummary/' + id)
-            .then((res) => {
-               
-            })
-            .catch(err => alert(err));
-    }
-    */
     return (
         <>
 
@@ -58,13 +35,7 @@ const ArticleItem = (props) => {
                 </div>
       
             </div>
-        
-            <Routes>
-                    <Route path="/summary/:id" element={<ArticleSummary id = {id}/>}>
-                 
-                    </Route>
-
-                    </Routes>
+    
 
 
         </>

@@ -8,8 +8,8 @@ import {Link,Route,Routes} from "react-router-dom";
 
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
-    const [searchFilter, setSearchFilter] = useState([]);
-    const [result, setResult] = useState("");
+ //  const [searchFilter, setSearchFilter] = useState([]);
+  const [result, setResult] = useState([]);
     useEffect(() => {
         let subscribe = true;
         axios.get('http://localhost:5000/all-articles')
@@ -18,31 +18,29 @@ const ArticleList = () => {
                     setArticles(() => data);
                 }
             })
-            .then((articles) => setSearchFilter(articles))
-            .catch(err => {
-                alert(err);
-            });
+
         return () => {
             subscribe = false;
         }
     });
 
-    useEffect(() =>{
+
+     const ArticleItemData = () => {
+         return articles.map((res, i) => {
+             return <ArticleCard object={res} key={i}/>;
+         })
+     };
+
+    /* useEffect(() =>{
         const results = searchFilter.filter(res =>
            res.title.toLowerCase().includes(result)
         );
         setArticles(results)
       },[result])
 
-    // const ArticleItemData = () => {
-    //     return articles.map((res, i) => {
-    //         return <ArticleCard object={res} key={i}/>;
-    //     })
-    // };
-
     const onChange = (evt) => {
         setResult(evt.target.value);
-        }
+        } */
 
     const OpenSummary = () => {
 
@@ -61,9 +59,9 @@ const ArticleList = () => {
 
                     <input
                             type="text"
-                            placeholder="Search for an article test..."
+                            placeholder="Search for an article"
                             value={result}
-                            onChange={onChange}
+                            //onChange={e => setKeyword(e.target.value)}
                     />
 
                     <div className="list">
@@ -77,7 +75,6 @@ const ArticleList = () => {
 
                         )
                     }
-
                     </div>
 
  

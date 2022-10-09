@@ -19,17 +19,17 @@ const SubmissionItem = (props) => {
     return (
         <>
 
-            <div className="card card-container"  >
-                <div className="card-body">
-                <h4 className="card-id">ID: {id}</h4>
-                    <h4 className="card-title">Title: {title}</h4>
+            <div className="article article-container"  >
+                <div className="article-body">
+                <h4 className="article-id">ID: {id}</h4>
+                    <h4 className="article-title">Title: {title}</h4>
                     
-                    <h5 className="card-text">DOI: {doi}</h5>
-                    <h5 className="card-text">Authors: {authors}</h5>
-                    <p className="card-text">Source: {source}</p>
-                    <p className="card-text">Published year: {pubyear}</p>
-                    <p className="card-text">Name: {name}</p>
-                    <p className="card-text">Email: {email}</p>
+                    <h5 className="article-text">DOI: {doi}</h5>
+                    <h5 className="article-text">Authors: {authors}</h5>
+                    <p className="article-text">Source: {source}</p>
+                    <p className="article-text">Published year: {pubyear}</p>
+                    <p className="article-text">Name: {name}</p>
+                    <p className="article-text">Email: {email}</p>
                    
                 </div>
             </div>

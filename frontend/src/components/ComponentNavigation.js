@@ -10,6 +10,7 @@ import SubmitArticle from "./SubmitArticle";
 import ModerationList from "./ModerationList";
 import ArticleList from "./ArticleList";
 import NotFoundPage from "./404";
+import SearchBook from "./SearchArticle";
 
 
 
@@ -33,9 +34,7 @@ function ComponentNavigation() {
                                 style={{maxHeight: '100px'}}
                                 navbarScroll
                             >
-                                <Nav.Link as={Link} to={"/ArticleSearch"}><h4 className="linkText">Find an article</h4></Nav.Link>
-                                <Nav.Link as={Link} to={"/Articles"}><h4 className="linkText">Article List</h4></Nav.Link>
-                              {/*<Nav.Link as={Link} to={"/ArticleSummary"}><h4 className="linkText">Article Summary </h4></Nav.Link>*/}  
+                                <Nav.Link as={Link} to={"/Articles"}><h4 className="linkText">Articles</h4></Nav.Link>
                                 <Nav.Link as={Link} to={"/SubmitArticle"}><h4 className="linkText">Request an Article</h4></Nav.Link>
 
                             </Nav>
@@ -47,6 +46,7 @@ function ComponentNavigation() {
             <div>
                 <Routes>
                     <Route exact path="/" element={<Home/>} />
+           
                     <Route path="/Home" element={<Home/>}>
                     </Route>
                     <Route path="/SubmitArticle" element={<SubmitArticle/>}>
@@ -59,8 +59,12 @@ function ComponentNavigation() {
                     </Route>
 
 
+                    <Route path="/summary/:id" element={<ArticleSummary/>}>
+                 </Route>
 
-
+                 <Route path="/search/:keyword" element={<SearchBook/>}>
+                    </Route>
+              
                 </Routes>
             </div>
         </Router>

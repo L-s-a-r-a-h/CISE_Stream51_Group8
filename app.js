@@ -43,19 +43,30 @@ app.post('/request-article', (req, res) => {
       .catch(err => res.status(400).json({error: 'Unable to submit this request'}));
 });
 
-
+//get summary and data of the article
 app.get('/articlesummary/:id', (req, res) => {
   articles.findById(req.params.id)
       .then(Article => res.json(Article))
       .catch(err => res.status(404).json({error: + 'No article found'}));
 });
 
-/*app.get('/:id', (req, res) => {
-  articles.findById(req.params.id)
-      .then(Article => res.json(Article))
-      .catch(err => res.status(404).json({nobookfound: 'No Books found'}));
+//search for an article
+app.get('/search/:keyword', (req, res) => {
+  articles.find({
+      $or: [
+          {
+              title:
+                  {$regex: new RegExp("^" + req.params.keyword.toLowerCase(), "i")}
+          },
+          {
+              authors:
+                  {$regex: new RegExp("^" + req.params.keyword.toLowerCase(), "i")}
+          }
+      ]
+  })
+      .then(books => res.json(books))
+      .catch(err => res.json(err));
 });
-*/
 
 // Init Middleware
 app.use(express.json({ extended: false }));
