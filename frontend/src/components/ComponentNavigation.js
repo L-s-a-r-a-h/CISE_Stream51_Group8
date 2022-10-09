@@ -17,7 +17,7 @@ function ComponentNavigation() {
                 <Navbar bg="light" expand="lg">
                     <Container className="container" fluid>
 
-                        <h>SPEED</h> 
+                        <h2>SPEED</h2> 
                         <Navbar.Brand href="/Home"><h4 className="store">Home</h4></Navbar.Brand>
                         <Nav.Link as={Link} to={"/Moderator"}><h4 className="linkText">moderator</h4></Nav.Link>
 

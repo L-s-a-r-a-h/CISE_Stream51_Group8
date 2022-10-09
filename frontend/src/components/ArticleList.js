@@ -27,21 +27,19 @@ const ArticleList = () => {
     };
 
     return (
-        <>
-            <div className="ShowBookList">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <br/>
-                            <br/>
-                            <h2 className="display-4 text-center">Articles list</h2>
-                        </div>
+        <div className="ShowBookList">
+                <div className="row">
+                    <div className="col-md-12">
+                        <br/>
+                        <br/>
+                        <h2 className="display-4 text-center">Articles list</h2>
                     </div>
+                </div>
 
-                    <div className="list">
-                        {ArticleItemData()}
-                    </div>
-            </div>
-        </>
+                <div className="list">
+                    {ArticleItemData()}
+                </div>
+        </div>
     )
 }
 export default ArticleList;
