@@ -53,7 +53,8 @@ const {
                       ? column.isSortedDesc
                         ? ' 🔽'
                         : ' 🔼'
-                      : ''}
+                
+                      : '🔼'}
                   </span>
                 </th>
               ))}
