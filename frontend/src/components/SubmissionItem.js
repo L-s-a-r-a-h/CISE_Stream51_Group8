@@ -1,4 +1,5 @@
 import React from "react";
+import { alignPropType } from "react-bootstrap/esm/types";
 
 // data entered into submission form
 const SubmissionItem = (props) => {
@@ -15,22 +16,36 @@ const SubmissionItem = (props) => {
 
         };
 
+        function acceptSubmission()
+        {
+alert("accepted");
+
+        }
+
+        function rejectSubmission()
+        {
+alert("rejected");
+        }
        
     return (
         <>
 
             <div className="article article-container"  >
                 <div className="article-body">
-                <h4 className="article-id">ID: {id}</h4>
+                <h4 className="article-id">submission ID: {id}</h4>
                     <h4 className="article-title">Title: {title}</h4>
-                    
-                    <h5 className="article-text">DOI: {doi}</h5>
-                    <h5 className="article-text">Authors: {authors}</h5>
+                    <p className="article-text">DOI: {doi}</p>
+                    <p className="article-text">Authors: {authors}</p>
                     <p className="article-text">Source: {source}</p>
                     <p className="article-text">Published year: {pubyear}</p>
+                    <p className="article-text">Submitter details</p>
                     <p className="article-text">Name: {name}</p>
                     <p className="article-text">Email: {email}</p>
                    
+                   <button className = "Accept-Button"  onClick={acceptSubmission}> Accept</button>
+
+                   <button className = "Reject-Button" onClick={rejectSubmission}> Reject</button>
+
                 </div>
             </div>
         </>

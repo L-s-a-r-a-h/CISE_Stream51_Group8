@@ -23,4 +23,16 @@ body {
     color: black;
   }
 
+  .topnav h2 {
+    color: rgb(70, 65, 65);
+    text-align: center;
+    font-size: 30px;
+  }
+  .topnav h3 {
+    color: rgb(70, 65, 65);
+    text-align: center;
+    font-size: 15px;
+  }
   
+  
+
