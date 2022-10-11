@@ -7,6 +7,11 @@ import axios from "axios";
 
 
 
+<<<<<<< HEAD
+=======
+// so dont use
+/*
+>>>>>>> 423e109056d279e5bba2532820e716c701d6c9fa
 const ArticleItem = (props) => {
     const {id,title, authors, source, pubyear, doi,claim,evidence} =
         {
@@ -50,3 +55,7 @@ const ArticleItem = (props) => {
     );
 }
 export default ArticleItem;
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> 423e109056d279e5bba2532820e716c701d6c9fa
