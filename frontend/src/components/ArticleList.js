@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import ArticleCard from "./ArticleCard"
-
+//import ArticleCard from "./ArticleCard"
+import ArticleCard from "./ArticleItem"
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
     const [searchFilter, setSearchFilter] = useState([]);

@@ -64,7 +64,7 @@ app.get('/search/:keyword', (req, res) => {
           }
       ]
   })
-      .then(books => res.json(books))
+      .then(articles => res.json(articles))
       .catch(err => res.json(err));
 });
 

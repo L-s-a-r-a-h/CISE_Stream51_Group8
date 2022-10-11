@@ -1,7 +1,9 @@
 import React, {useMemo} from "react";
 import { useTable, useSortBy, usePagination } from 'react-table';
+import { useNavigate } from "react-router-dom";
 
 const Table = ({columns, data}) => {
+  
 const {
     getTableProps,
     getTableBodyProps,
@@ -30,6 +32,7 @@ const {
     
     useSortBy,
     usePagination
+
   )
   // Render Data Table UI
   return (
@@ -41,6 +44,7 @@ const {
               {headerGroup.headers.map(column => (
                 // Add the sorting props to control sorting. For this example
                 // we can add them into the header props
+                
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
                   {/* Add a sort direction indicator */}

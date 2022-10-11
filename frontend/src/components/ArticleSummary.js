@@ -45,7 +45,7 @@ const ArticleList = () => {
         //         </div>
         // </div>
         <div>
-        <h2>Article Summary</h2>
+        <h2>Article List</h2>
             {/* <Dropdown/> */}
             <Styles>
               <Table
@@ -53,6 +53,7 @@ const ArticleList = () => {
               columns={tablecolumns}
               />
           </Styles>
+          
       </div>
     )
 }
