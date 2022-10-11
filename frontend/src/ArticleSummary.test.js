@@ -5,6 +5,7 @@ import ArticleSummary from './components/ArticleSummary';
 
 test('Article Summary', () => {
     expect('Article Summary').not.toMatch(/B/);
+    expect('Article Summary').toEqual('Article Summary');
   });
   
   
