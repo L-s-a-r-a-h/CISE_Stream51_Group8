@@ -5,7 +5,7 @@ import ComponentNavigation from "./components/ComponentNavigation";
 import SubmissionForm from './components/SubmissionForm';
 
 test('render app',()=>{
-render(<ComponentNavigation/>);
+render(<App/>);
 
 })
 

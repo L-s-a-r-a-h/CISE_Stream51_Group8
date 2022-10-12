@@ -1,5 +1,4 @@
 import React from "react";
-import { alignPropType } from "react-bootstrap/esm/types";
 
 // data entered into submission form
 const SubmissionItem = (props) => {
