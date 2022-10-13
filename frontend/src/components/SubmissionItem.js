@@ -1,9 +1,6 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import {Button} from "react-bootstrap";
-import axios from "axios";
 
-
+// data entered into submission form
 const SubmissionItem = (props) => {
     const {id,title, authors, source, pubyear, doi,name,email} =
         {
@@ -18,22 +15,36 @@ const SubmissionItem = (props) => {
 
         };
 
+        function acceptSubmission()
+        {
+alert("accepted");
+
+        }
+
+        function rejectSubmission()
+        {
+alert("rejected");
+        }
        
     return (
         <>
 
-            <div className="card card-container"  >
-                <div className="card-body">
-                <h4 className="card-id">ID: {id}</h4>
-                    <h4 className="card-title">Title: {title}</h4>
-                    
-                    <h5 className="card-text">DOI: {doi}</h5>
-                    <h5 className="card-text">Authors: {authors}</h5>
-                    <p className="card-text">Source: {source}</p>
-                    <p className="card-text">Published year: {pubyear}</p>
-                    <p className="card-text">Name: {name}</p>
-                    <p className="card-text">Email: {email}</p>
+            <div className="article article-container"  >
+                <div className="article-body">
+                <h4 className="article-id">submission ID: {id}</h4>
+                    <h4 className="article-title">Title: {title}</h4>
+                    <p className="article-text">DOI: {doi}</p>
+                    <p className="article-text">Authors: {authors}</p>
+                    <p className="article-text">Source: {source}</p>
+                    <p className="article-text">Published year: {pubyear}</p>
+                    <p className="article-text">Submitter details</p>
+                    <p className="article-text">Name: {name}</p>
+                    <p className="article-text">Email: {email}</p>
                    
+                   <button className = "Accept-Button"  onClick={acceptSubmission}> Accept</button>
+
+                   <button className = "Reject-Button" onClick={rejectSubmission}> Reject</button>
+
                 </div>
             </div>
         </>

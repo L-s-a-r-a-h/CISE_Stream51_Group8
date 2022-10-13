@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import ArticleCard from "./ArticleCard"
-
+//import ArticleCard from "./ArticleCard"
+import ArticleCard from "./ArticleItem"
 const ArticleList = () => {
     const [articles, setArticles] = useState([]);
     const [searchFilter, setSearchFilter] = useState([]);
@@ -30,44 +30,30 @@ const ArticleList = () => {
         setArticles(results)
       },[result])
 
-    // const ArticleItemData = () => {
-    //     return articles.map((res, i) => {
-    //         return <ArticleCard object={res} key={i}/>;
-    //     })
-    // };
+    const ArticleItemData = () => {
+        return articles.map((res, i) => {
+            return <ArticleCard object={res} key={i}/>;
+         })
+     };
 
     const onChange = (evt) => {
         setResult(evt.target.value);
         }
 
     return (
-        <>
-            <div className="ShowArticleList">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <br/>
-                            <br/>
-                            <h2 className="display-4 text-center">Articles List</h2>
-                        </div>
+        <div className="ShowBookList">
+                <div className="row">
+                    <div className="col-md-12">
+                        <br/>
+                        <br/>
+                        <h2 className="display-4 text-center">Articles list</h2>
                     </div>
+                </div>
 
-                    <input
-                            type="text"
-                            placeholder="Search for an article test..."
-                            value={result}
-                            onChange={onChange}
-                    />
-
-                    <div className="list">
-                        {articles.map((res,i) => {
-                            <ArticleCard object={res} key={i}/>
-                        }
-
-                        )
-                    }
-                    </div>
-            </div>
-        </>
+                <div className="list">
+                    {ArticleItemData()}
+                </div>
+        </div>
     )
 }
 export default ArticleList;

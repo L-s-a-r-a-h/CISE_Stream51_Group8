@@ -48,6 +48,7 @@ return (
 </div>
                 <div className="list">
                     {SubmissionItemData()}
+                    
                 </div>
         </div>
     </>

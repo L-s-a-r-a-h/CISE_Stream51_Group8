@@ -23,6 +23,9 @@ const ArticleSubmissionSchema = new mongoose.Schema({
   },
   email: {
     type:String
+  },
+  status: {
+    type:String
   }
 
 });
